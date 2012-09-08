@@ -1,4 +1,8 @@
 Compile
 =======
-    $gcc `pkg-config --cflags opencv` `pkg-config --libs opencv` face_detector.c -o face_detector
+    $ gcc `pkg-config --cflags opencv` `pkg-config --libs opencv` face_detector.c -o face_detector
 
+Usage
+=====
+    $ ./face_detector /path/to/example.jpg
+    [{"x": 382,"y": 232,"width": 45,"height": 45},{"x": 216,"y": 208,"width": 175,"height": 175}]
