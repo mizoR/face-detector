@@ -1,0 +1,4 @@
+Compile
+=======
+    $gcc `pkg-config --cflags opencv` `pkg-config --libs opencv` face_detector.c -o face_detector
+
