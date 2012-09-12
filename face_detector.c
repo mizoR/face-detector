@@ -9,12 +9,6 @@ int main (int argc, char **argv) {
   CvHaarClassifierCascade *cascade = 0;
   CvMemStorage *storage = 0;
   CvSeq *faces;
-  static CvScalar colors[] = {
-    {{0, 0, 255}}, {{0, 128, 255}},
-    {{0, 255, 255}}, {{0, 255, 0}},
-    {{255, 128, 0}}, {{255, 255, 0}},
-    {{255, 0, 0}}, {{255, 0, 255}}
-  };
 
   if (argc < 2 || (src_img = cvLoadImage (argv[1], CV_LOAD_IMAGE_COLOR)) == 0) return -1;
   src_gray = cvCreateImage (cvGetSize (src_img), IPL_DEPTH_8U, 1);
@@ -26,7 +20,7 @@ int main (int argc, char **argv) {
   cvCvtColor (src_img, src_gray, CV_BGR2GRAY);
   cvEqualizeHist (src_gray, src_gray);
 
-  faces = cvHaarDetectObjects (src_gray, cascade, storage, 1.11, 4, 0, cvSize (40, 40));
+  faces = cvHaarDetectObjects (src_gray, cascade, storage, 1.1, 4, CV_HAAR_SCALE_IMAGE, cvSize (40, 40));
 
   printf("[");
   for (i = 0; i < (faces ? faces->total : 0); i++) {
